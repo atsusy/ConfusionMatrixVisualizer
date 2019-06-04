@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ConfusionMatrixVisualizer.ConfusionMatrixVisualizer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ConfusionMatrixVisualizer"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <local:ValueSizeConverter x:Key="ValueSizeConverter"/>
+        <local:MatrixValuesConverter x:Key="MatrixValuesConverter"/>
+    </UserControl.Resources>
+    <ItemsControl ItemsSource="{Binding MatrixValues, Converter={StaticResource MatrixValuesConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Grid local:GridHelpers.RowCount="{Binding RowCount, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}" 
+                      local:GridHelpers.ColumnCount="{Binding ColumnCount, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}"
+                      Background="Transparent"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemContainerStyle>
+            <Style>
+                <Setter Property="Grid.Column" Value="{Binding Path=Column}"/>
+                <Setter Property="Grid.Row" Value="{Binding Path=Row}"/>
+            </Style>
+        </ItemsControl.ItemContainerStyle>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Ellipse 
+                        Fill="{Binding CellBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}"
+                        Width="{Binding CellSize, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}"
+                        Height="{Binding CellSize, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}"
+                        Margin="{Binding CellMargin, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}"/>
+                    <Ellipse 
+                        Fill="{Binding CellForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}"                   
+                        Margin="{Binding CellMargin, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}}">
+                        <Ellipse.Width>
+                            <MultiBinding Converter="{StaticResource ValueSizeConverter}">
+                                <Binding Path="Value"/>
+                                <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}"/>
+                            </MultiBinding>
+                        </Ellipse.Width>
+                        <Ellipse.Height>
+                            <MultiBinding Converter="{StaticResource ValueSizeConverter}">
+                                <Binding Path="Value"/>
+                                <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=local:ConfusionMatrixVisualizer}"/>
+                            </MultiBinding>
+                        </Ellipse.Height>
+                    </Ellipse>
+                </Grid>   
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

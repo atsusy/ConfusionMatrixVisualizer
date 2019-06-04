@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfusionMatrixVisualizerDemo", "ConfusionMatrixVisualizerDemo\ConfusionMatrixVisualizerDemo.csproj", "{E164CF99-5E34-430F-87C5-04316D70C62D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfusionMatrixVisualizer", "ConfusionMatrixVisualizer\ConfusionMatrixVisualizer.csproj", "{797C5B3A-C663-4CE7-860D-15A89A4FE5FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E164CF99-5E34-430F-87C5-04316D70C62D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E164CF99-5E34-430F-87C5-04316D70C62D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E164CF99-5E34-430F-87C5-04316D70C62D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E164CF99-5E34-430F-87C5-04316D70C62D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{797C5B3A-C663-4CE7-860D-15A89A4FE5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797C5B3A-C663-4CE7-860D-15A89A4FE5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797C5B3A-C663-4CE7-860D-15A89A4FE5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797C5B3A-C663-4CE7-860D-15A89A4FE5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A7AD97B-4E14-49A8-A374-499B62DB4413}
+	EndGlobalSection
+EndGlobal
